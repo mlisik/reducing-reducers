@@ -1,0 +1,19 @@
+{
+  "name": "rn-talks-reducers",
+  "version": "0.0.1",
+  "description": "Composable, higher order reducers examples",
+  "author": "mlisik",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.2",
+    "babel-jest": "^24.5.0",
+    "jest": "^24.5.0"
+  }
+}
