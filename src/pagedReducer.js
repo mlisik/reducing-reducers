@@ -1,7 +1,7 @@
 import get from "lodash.get";
 
-const DEFAULT_TOTAL_PAGES_PATH = "payload.rawData.meta.totalPages";
-const DEFAULT_REQUEST_ACTION_PAGE_PATH = "meta.previousAction.meta.page";
+const DEFAULT_TOTAL_PAGES_PATH = "payload.meta.total";
+const DEFAULT_REQUEST_ACTION_PAGE_PATH = "meta.page";
 
 const buildPagination = (
   action,

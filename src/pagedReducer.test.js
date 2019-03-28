@@ -11,10 +11,10 @@ const makeAction = ({
   totalPages = 10
 } = {}) => ({
   type,
-  meta: { previousAction: { meta: { page } } },
+  meta: { page },
   payload: {
     data,
-    rawData: { meta: { totalPages } }
+    meta: { total: totalPages }
   }
 });
 
@@ -128,7 +128,7 @@ describe("with different response structure", () => {
 
   const action = {
     type: successType,
-    meta: { previousAction: { meta: { page: 1 } } },
+    meta: { page: 1 },
     payload: {
       data: {
         results: [
