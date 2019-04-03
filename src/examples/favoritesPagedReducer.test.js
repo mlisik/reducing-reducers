@@ -6,12 +6,8 @@ import reducer, {
 } from "./favoritesPagedReducer";
 
 it("should return initial state for not matching types", () => {
-  const action = {
-    type: "noop"
-  };
-
+  const action = { type: "noop" };
   const result = reducer(undefined, action);
-
   const expected = initialState;
 
   expect(result).toEqual(expected);
@@ -57,8 +53,7 @@ it("should transition to loading state on request action", () => {
 it("should transform payload correctly (with undefined state)", () => {
   const action = {
     type: FAVORITES_SUCCESS,
-    payload: { data: ["payload"], meta: { total: 10 } },
-    meta: { page: 0 }
+    payload: { data: ["payload"], meta: { nextPage: 1, totalPages: 10 } }
   };
 
   const result = reducer(undefined, action);
@@ -83,8 +78,7 @@ it("should transform payload correctly (with previous state)", () => {
 
   const action = {
     type: FAVORITES_SUCCESS,
-    payload: { data: ["payload"], meta: { total: 10 } },
-    meta: { page: 10 }
+    payload: { data: ["payload"], meta: { nextPage: null, totalPages: 10 } }
   };
 
   const result = reducer(state, action);
@@ -109,8 +103,7 @@ it("should transform payload correctly and reset state (with previous state and 
 
   const action = {
     type: FAVORITES_SUCCESS,
-    payload: { data: ["payload"], meta: { total: 10 } },
-    meta: { page: 0 }
+    payload: { data: ["payload"], meta: { nextPage: 1, totalPages: 10 } }
   };
 
   const result = reducer(state, action);

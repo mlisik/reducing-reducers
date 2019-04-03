@@ -21,20 +21,17 @@ const favoritesReducer = (state = initialState, action) => {
         isLoading: true
       };
     case FAVORITES_SUCCESS: {
-      const currentPage = action.meta.page;
-      const shouldResetData = currentPage === 0;
       const newData = build(action.payload.data);
-      const nextPage = currentPage + 1;
-      const totalPages = action.payload.meta.total;
+      const { nextPage, totalPages } = action.payload.meta;
 
-      const data = shouldResetData ? newData : [...state.data, ...newData];
+      const data = nextPage === 1 ? newData : [...state.data, ...newData];
 
       return {
         ...state,
         data,
         error: null,
         isLoading: false,
-        nextPage: nextPage <= totalPages ? nextPage : null,
+        nextPage,
         totalPages
       };
     }
